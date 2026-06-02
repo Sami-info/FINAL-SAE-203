@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Stages - Admin | MMI Meaux</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 font-sans min-h-screen flex flex-col">
+
+    <!-- NAVBAR ADMIN -->
+    <nav class="bg-blue-900 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <span class="text-xl font-bold tracking-wide">MMI Meaux</span>
+                <span class="bg-blue-700 text-xs px-2 py-1 rounded-sm uppercase font-semibold text-blue-200">Stages</span>
+                <span class="bg-red-600 text-xs px-2 py-1 rounded-sm uppercase font-semibold">ADMIN</span>
+            </div>
+            <div class="flex items-center space-x-6 text-sm font-medium">
+                <a href="accueil.html" class="hover:text-blue-200 transition">Accueil</a>
+                <a href="voir-stage.html" class="bg-white text-blue-900 px-5 py-2 rounded-lg font-semibold">Stages</a>
+                <a href="soutenance.html" class="hover:text-blue-200 transition">Soutenances</a>
+                <a href="#" class="hover:text-blue-200 transition">Étudiants</a>
+                <a href="entreprise-admin.html" class="hover:text-blue-200 transition">Entreprises</a>
+                <a href="profil-admin.html" class="hover:text-blue-200 transition">Profil</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Contenu Principal -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-12">
+        
+        <!-- En-tête -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">Mon Profil Administrateur</h1>
+            <p class="text-gray-500 text-sm mt-1">Gérez vos informations professionnelles et vos paramètres de sécurité académique.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Colonne Gauche : Résumé du compte (Bleu) -->
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-2xl shadow-xs border border-gray-100 text-center">
+                    <div class="w-20 h-20 bg-blue-50 text-blue-900 rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-4 border border-blue-100">
+                        SM
+                    </div>
+                    <h2 class="text-lg font-bold text-gray-900">Secrétariat MMI</h2>
+                    <p class="text-xs font-medium text-blue-700 bg-blue-50 inline-block px-2.5 py-1 rounded-md mt-1">Rôle : Super-Admin</p>
+                    
+                    <div class="border-t border-gray-100 mt-6 pt-4 text-left text-xs space-y-2 text-gray-500">
+                        <div><span class="font-semibold text-gray-700">Composante :</span> IUT de Meaux</div>
+                        <div><span class="font-semibold text-gray-700">Dernière connexion :</span> Aujourd'hui à 14:32</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colonne Droite : Formulaires mis à jour avec focus-bleu -->
+            <div class="md:col-span-2 space-y-6">
+                
+                <!-- Section 1 : Informations Générales -->
+                <div class="bg-white p-6 rounded-2xl shadow-xs border border-gray-100">
+                    <h3 class="text-base font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">Informations Générales</h3>
+                    
+                    <form action="#" method="POST" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Nom</label>
+                                <input type="text" value="Secrétariat" class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 text-gray-600" readonly>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Prénom</label>
+                                <input type="text" value="MMI" class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 text-gray-600" readonly>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Email Académique (Non modifiable)</label>
+                            <input type="email" value="secretariat.mmi.meaux@univ-eiffel.fr" class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 text-gray-500 cursor-not-allowed" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Ligne Téléphonique Bureau</label>
+                            <input type="text" value="01 60 99 22 11" class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="flex justify-end pt-2">
+                            <button type="submit" class="bg-blue-900 hover:bg-blue-950 text-white text-xs font-bold px-4 py-2 rounded-xl transition">
+                                Enregistrer les modifications
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Section 2 : Sécurité / Mot de passe (Passage au bleu) -->
+                <div class="bg-white p-6 rounded-2xl shadow-xs border border-gray-100">
+                    <h3 class="text-base font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">Sécurité du Compte</h3>
+                    
+                    <form action="#" method="POST" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Mot de passe actuel</label>
+                            <input type="password" required class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="••••••••">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Nouveau mot de passe</label>
+                                <input type="password" required class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="••••••••">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Confirmer le mot de passe</label>
+                                <input type="password" required class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="••••••••">
+                            </div>
+                        </div>
+                        <div class="flex justify-end pt-2">
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition">
+                                Mettre à jour le mot de passe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Section 3 : Préférences de notifications -->
+                <div class="bg-white p-6 rounded-2xl shadow-xs border border-gray-100">
+                    <h3 class="text-base font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">Préférences Système & Alerte</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="checkbox" checked class="w-4 h-4 text-blue-600 border-gray-300 rounded-sm focus:ring-blue-500 mt-0.5">
+                            <span class="text-sm text-gray-700">M'alerter par email lorsqu'un étudiant dépose une nouvelle convention.</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="checkbox" checked class="w-4 h-4 text-blue-600 border-gray-300 rounded-sm focus:ring-blue-500 mt-0.5">
+                            <span class="text-sm text-gray-700">Recevoir le récapitulatif hebdomadaire des offres de stages en attente de validation.</span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer commun d'origine -->
+    <footer class="bg-gray-900 text-gray-300 border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            <!-- Colonne 1 : Logo + Description -->
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2 text-white">
+                    <span class="text-2xl font-bold tracking-wide">MMI Meaux</span>
+                    <span class="bg-blue-600 text-xs px-2 py-1 rounded uppercase font-bold text-blue-100">Stages</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    Application officielle de suivi et de gestion des stages du département MMI de Meaux 
+                    (Université Gustave Eiffel).
+                </p>
+            </div>
+
+            <!-- Colonne 2 : Navigation -->
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="accueil.html" class="hover:text-blue-400 transition">Accueil</a></li>
+                    <li><a href="voir-stage.html" class="hover:text-blue-400 transition">Offres de stages</a></li>
+                    <li><a href="connexion.html" class="hover:text-blue-400 transition">Espace Étudiant</a></li>
+                    <li><a href="connexion-admin.html" class="hover:text-blue-400 transition">Espace Enseignant</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 3 : Ressources -->
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Ressources</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-400 transition">Portail ESUP</a></li>
+                    <li><a href="https://www.univ-gustave-eiffel.fr" target="_blank" class="hover:text-blue-400 transition">Univ Gustave Eiffel</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Guide des stages</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Contact Secrétariat</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 4 : Suivez MMI Meaux -->
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Suivez MMI Meaux</h3>
+                <div class="text-sm text-gray-400">
+                    <p class="mb-1">Environnement de dev :</p>
+                    <p class="font-medium text-blue-400">PHP / MySQL (Mutualisé)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="bg-gray-950 text-gray-500 text-xs py-5 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                &copy; 2026 BUT MMI Meaux — Projet SAé Suivi des Stages. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
