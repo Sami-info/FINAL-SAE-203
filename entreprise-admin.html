@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Stages - Admin | MMI Meaux</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 font-sans min-h-screen flex flex-col">
+
+    <!-- NAVBAR ADMIN -->
+    <nav class="bg-blue-900 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <span class="text-xl font-bold tracking-wide">MMI Meaux</span>
+                <span class="bg-blue-700 text-xs px-2 py-1 rounded-sm uppercase font-semibold text-blue-200">Stages</span>
+                <span class="bg-red-600 text-xs px-2 py-1 rounded-sm uppercase font-semibold">ADMIN</span>
+            </div>
+            <div class="flex items-center space-x-6 text-sm font-medium">
+                <a href="accueil.html" class="hover:text-blue-200 transition">Accueil</a>
+                <a href="voir-stage.html" class="bg-white text-blue-900 px-5 py-2 rounded-lg font-semibold">Stages</a>
+                <a href="soutenance.html" class="hover:text-blue-200 transition">Soutenances</a>
+                <a href="#" class="hover:text-blue-200 transition">Étudiants</a>
+                <a href="entreprise-admin.html" class="hover:text-blue-200 transition">Entreprises</a>
+                <a href="profil-admin.html" class="hover:text-blue-200 transition">Profil</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu Principal -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-8">
+        
+        <!-- En-tête de page avec actions -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900">Entreprises Partenaires</h1>
+                <p class="text-gray-500 text-sm mt-1">Gérez le réseau d'entreprises partenaires de l'IUT et le suivi des conventions.</p>
+            </div>
+            <div>
+                <button class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2.5 rounded-xl font-semibold text-sm transition shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    Ajouter une entreprise
+                </button>
+            </div>
+        </div>
+
+        <!-- Barre de filtres et recherche -->
+        <div class="bg-white p-4 rounded-xl shadow-xs border border-gray-100 mb-6 flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div class="w-full md:w-92 relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-51.5-51.5m7.5-7a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+                    </svg>
+                </span>
+                <input type="text" class="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Rechercher une entreprise, un contact...">
+            </div>
+            <div class="flex gap-3 w-full md:w-auto justify-end">
+                <select class="px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 bg-white">
+                    <option value="">Tous les secteurs</option>
+                    <option value="dev">Développement Web</option>
+                    <option value="design">Design / UX-UI</option>
+                    <option value="com">Communication / Marketing</option>
+                    <option value="audiovisuel">Audiovisuel</option>
+                </select>
+                <select class="px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 bg-white">
+                    <option value="">Statut du partenariat</option>
+                    <option value="actif">Actif</option>
+                    <option value="en_attente">En attente de renouvellement</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Tableau des entreprises partenaires -->
+        <div class="bg-white rounded-xl shadow-xs border border-gray-100 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-100 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                            <th class="px-6 py-4">Entreprise</th>
+                            <th class="px-6 py-4">Secteur principal</th>
+                            <th class="px-6 py-4">Contact principal</th>
+                            <th class="px-6 py-4">Historique de stages</th>
+                            <th class="px-6 py-4">Statut</th>
+                            <th class="px-6 py-4 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100 text-sm text-gray-700">
+                        
+                        <!-- Entreprise 1 -->
+                        <tr class="hover:bg-gray-50/70 transition">
+                            <td class="px-6 py-4">
+                                <div class="font-bold text-gray-950">Pixel Forge</div>
+                                <div class="text-xs text-gray-400">Marne-la-Vallée, France</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="bg-purple-50 text-purple-700 text-xs px-2.5 py-1 rounded-md font-medium">Design / UX-UI</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>Sophie Martin</div>
+                                <div class="text-xs text-gray-400">s.martin@pixelforge.fr</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="text-gray-900 font-semibold">4 étudiants</span> <span class="text-gray-400 text-xs">(depuis 2024)</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    Actif
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-right space-x-2">
+                                <button class="text-gray-500 hover:text-red-600 font-medium text-xs transition">Modifier</button>
+                                <button class="text-red-600 hover:text-red-800 font-semibold text-xs transition">Voir offres</button>
+                            </td>
+                        </tr>
+
+                        <!-- Entreprise 2 -->
+                        <tr class="hover:bg-gray-50/70 transition">
+                            <td class="px-6 py-4">
+                                <div class="font-bold text-gray-950">DevUp Studio</div>
+                                <div class="text-xs text-gray-400">Meaux, France</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-md font-medium">Développement Web</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>Julien Laurent</div>
+                                <div class="text-xs text-gray-400">contact@devup.io</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="text-gray-900 font-semibold">7 étudiants</span> <span class="text-gray-400 text-xs">(depuis 2023)</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    Actif
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-right space-x-2">
+                                <button class="text-gray-500 hover:text-red-600 font-medium text-xs transition">Modifier</button>
+                                <button class="text-red-600 hover:text-red-800 font-semibold text-xs transition">Voir offres</button>
+                            </td>
+                        </tr>
+
+                        <!-- Entreprise 3 -->
+                        <tr class="hover:bg-gray-50/70 transition">
+                            <td class="px-6 py-4">
+                                <div class="font-bold text-gray-950">Eiffel Com Agency</div>
+                                <div class="text-xs text-gray-400">Paris, France</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="bg-orange-50 text-orange-700 text-xs px-2.5 py-1 rounded-md font-medium">Communication</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>Amandine Robert</div>
+                                <div class="text-xs text-gray-400">a.robert@eiffelcom.fr</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="text-gray-900 font-semibold">2 étudiants</span> <span class="text-gray-400 text-xs">(depuis 2025)</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-700">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                    À renouveler
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-right space-x-2">
+                                <button class="text-gray-500 hover:text-red-600 font-medium text-xs transition">Modifier</button>
+                                <button class="text-red-600 hover:text-red-800 font-semibold text-xs transition">Voir offres</button>
+                            </td>
+                        </tr>
+
+                        <!-- Entreprise 4 -->
+                        <tr class="hover:bg-gray-50/70 transition">
+                            <td class="px-6 py-4">
+                                <div class="font-bold text-gray-950">Wave Productions</div>
+                                <div class="text-xs text-gray-400">Chessy, France</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="bg-pink-50 text-pink-700 text-xs px-2.5 py-1 rounded-md font-medium">Audiovisuel</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>Marc Taylor</div>
+                                <div class="text-xs text-gray-400">m.taylor@waveprod.com</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="text-gray-400 italic">Aucun stage</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    Actif
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-right space-x-2">
+                                <button class="text-gray-500 hover:text-red-600 font-medium text-xs transition">Modifier</button>
+                                <button class="text-red-600 hover:text-red-800 font-semibold text-xs transition">Voir offres</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination de la liste -->
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                <div>Affichage de <span class="font-semibold text-gray-700">1</span> à <span class="font-semibold text-gray-700">4</span> sur <span class="font-semibold text-gray-700">28</span> entreprises</div>
+                <div class="flex space-x-1">
+                    <button class="px-2.5 py-1.5 border border-gray-300 rounded bg-white font-medium hover:bg-gray-50 transition cursor-not-allowed" disabled>Précédent</button>
+                    <button class="px-2.5 py-1.5 border border-gray-300 rounded bg-white font-medium hover:bg-gray-50 transition">Suivant</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer commun -->
+    <footer class="bg-gray-900 text-gray-300 border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            <!-- Colonne 1 : Logo + Description -->
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2 text-white">
+                    <span class="text-2xl font-bold tracking-wide">MMI Meaux</span>
+                    <span class="bg-blue-600 text-xs px-2 py-1 rounded uppercase font-bold text-blue-100">Stages</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    Application officielle de suivi et de gestion des stages du département MMI de Meaux 
+                    (Université Gustave Eiffel).
+                </p>
+            </div>
+
+            <!-- Colonne 2 : Navigation -->
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="accueil.html" class="hover:text-blue-400 transition">Accueil</a></li>
+                    <li><a href="voir-stage.html" class="hover:text-blue-400 transition">Offres de stages</a></li>
+                    <li><a href="connexion.html" class="hover:text-blue-400 transition">Espace Étudiant</a></li>
+                    <li><a href="connexion-admin.html" class="hover:text-blue-400 transition">Espace Enseignant</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 3 : Ressources -->
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Ressources</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-400 transition">Portail ESUP</a></li>
+                    <li><a href="https://www.univ-gustave-eiffel.fr" target="_blank" class="hover:text-blue-400 transition">Univ Gustave Eiffel</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Guide des stages</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Contact Secrétariat</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 4 : Suivez MMI Meaux -->
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Suivez MMI Meaux</h3>
+                <div class="text-sm text-gray-400">
+                    <p class="mb-1">Environnement de dev :</p>
+                    <p class="font-medium text-blue-400">PHP / MySQL (Mutualisé)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="bg-gray-950 text-gray-500 text-xs py-5 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                &copy; 2026 BUT MMI Meaux — Projet SAé Suivi des Stages. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
