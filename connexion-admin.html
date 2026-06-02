@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil - MMI Meaux Stages</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 font-sans min-h-screen flex flex-col">
+
+    <nav class="bg-blue-900 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <span class="text-xl font-bold tracking-wide">MMI Meaux</span>
+                <span class="bg-blue-700 text-xs px-2 py-1 rounded-sm uppercase font-semibold text-blue-200">Stages</span>
+                <span class="bg-red-600 text-xs px-2 py-1 rounded-sm uppercase font-semibold">ADMIN</span>
+
+            </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center px-4 py-12">
+        <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 max-w-md w-full">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-50 text-red-600 mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-900">Espace Personnel Administration</h1>
+                <p class="text-gray-500 text-sm mt-2">Réservé au corps enseignant et secrétariat</p>
+            </div>
+            
+            <form action="dashboard-admin.html" method="POST" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Identifiant ou Email Académique</label>
+                    <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:outline-none text-sm" placeholder="nom.prenom@univ-eiffel.fr">
+                </div>
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="block text-sm font-semibold text-gray-700">Mot de passe</label>
+                        <a href="mot-de-passe-oublie-admin.html" class="text-xs text-red-600 hover:underline">Identifiants perdus ?</a>
+                    </div>
+                    <input type="password" name="password" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:outline-none text-sm" placeholder="••••••••">
+                </div>
+
+                <button type="submit" class="w-full bg-red-600 text-white py-3 rounded-xl font-semibold hover:bg-red-700 transition shadow-sm mt-2">
+                    Accéder au tableau de bord
+                </button>
+            </form>
+
+            <div class="text-center mt-6 text-sm">
+                <a href="connexion.html" class="text-gray-600 hover:text-gray-900 font-medium inline-flex items-center gap-1">
+                    ← Retour à l'accueil étudiant
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-300 border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2 text-white">
+                    <span class="text-2xl font-bold tracking-wide">MMI Meaux</span>
+                    <span class="bg-blue-600 text-xs px-2 py-1 rounded uppercase font-bold text-blue-100">Stages</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    Application officielle de suivi et de gestion des stages du département MMI de Meaux 
+                    (Université Gustave Eiffel).
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="accueil.html" class="hover:text-blue-400 transition">Accueil</a></li>
+                    <li><a href="voir-stage.html" class="hover:text-blue-400 transition">Offres de stages</a></li>
+                    <li><a href="connexion.html" class="hover:text-blue-400 transition">Espace Étudiant</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Espace Entreprise</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Ressources</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-400 transition">Portail ESUP</a></li>
+                    <li><a href="https://www.univ-gustave-eiffel.fr" target="_blank" class="hover:text-blue-400 transition">Univ Gustave Eiffel</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Guide des stages</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Contact Secrétariat</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Suivez MMI Meaux</h3>
+                <div class="text-sm text-gray-400">
+                    <p class="mb-1">Environnement de dev :</p>
+                    <p class="font-medium text-blue-400">PHP / MySQL (Mutualisé)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-950 text-gray-500 text-xs py-5 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                &copy; 2026 BUT MMI Meaux — Projet SAé Suivi des Stages. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
