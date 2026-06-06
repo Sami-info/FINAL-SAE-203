@@ -51,3 +51,26 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCounter();
   });
 });
+
+const registerForm = document.getElementById("registerForm");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+const passwordError = document.getElementById("passwordError");
+
+if (registerForm && password && confirmPassword && passwordError) {
+  registerForm.addEventListener("submit", function (event) {
+    if (password.value !== confirmPassword.value) {
+      event.preventDefault();
+
+      passwordError.classList.remove("hidden");
+
+      password.classList.add("border-red-500", "ring-2", "ring-red-500");
+      confirmPassword.classList.add("border-red-500", "ring-2", "ring-red-500");
+    } else {
+      passwordError.classList.add("hidden");
+
+      password.classList.remove("border-red-500", "ring-2", "ring-red-500");
+      confirmPassword.classList.remove("border-red-500", "ring-2", "ring-red-500");
+    }
+  });
+}
