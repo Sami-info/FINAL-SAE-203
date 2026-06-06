@@ -1,6 +1,11 @@
 <?php
 include "../includes/config.php";
 
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    header("Location: inscription.php");
+    exit;
+}
+
 $email = $_POST["email"];
 $mot_de_passe = $_POST["mot_de_passe"];
 $confirmation = $_POST["confirmation"];

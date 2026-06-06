@@ -15,9 +15,9 @@
             <div>
                 <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h3>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="connexion.php" class="hover:text-blue-400 transition">Accueil</a></li>
-                    <li><a href="voir-stage.php" class="hover:text-blue-400 transition">Offres de stages</a></li>
-                    <li><a href="connexion.php" class="hover:text-blue-400 transition">Espace Étudiant</a></li>
+                    <li><a href="../etudiant/connexion.php" class="hover:text-blue-400 transition">Accueil</a></li>
+                    <li><a href="../etudiant/voir-stage.php" class="hover:text-blue-400 transition">Offres de stages</a></li>
+                    <li><a href="../etudiant/connexion.php" class="hover:text-blue-400 transition">Espace Étudiant</a></li>
                     <li><a href="../admin/connexion.php" class="hover:text-blue-400 transition">Espace Admin</a></li>
                 </ul>
             </div>

@@ -16,6 +16,9 @@ mysqli_stmt_execute($stmt);
 $resultat = mysqli_stmt_get_result($stmt);
 $soutenance = mysqli_fetch_assoc($resultat);
 
+$verif_col = mysqli_query($connexion, "SHOW COLUMNS FROM soutenance LIKE 'heure_debut'");
+$nouveau_schema = mysqli_num_rows($verif_col) > 0;
+
 include "../includes/debut.php";
 include "../includes/header-etudiant.php";
 ?>
@@ -31,12 +34,22 @@ include "../includes/header-etudiant.php";
                 Aucune soutenance planifiée pour le moment.
             </div>
         <?php } else { ?>
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
                 <span class="text-xs font-bold text-gray-400 uppercase">Date & Horaire</span>
                 <p class="text-lg font-bold text-gray-900 mt-1"><?php echo htmlspecialchars($soutenance["date_soutenance"]); ?></p>
-                <p class="text-sm text-blue-600 font-medium"><?php echo htmlspecialchars($soutenance["horaire"]); ?></p>
+                <?php if ($nouveau_schema) { ?>
+                    <p class="text-sm text-blue-600 font-medium"><?php echo htmlspecialchars($soutenance["heure_debut"]); ?> - <?php echo htmlspecialchars($soutenance["heure_fin"]); ?></p>
+                <?php } else { ?>
+                    <p class="text-sm text-blue-600 font-medium"><?php echo htmlspecialchars($soutenance["horaire"]); ?></p>
+                <?php } ?>
             </div>
+            <?php if ($nouveau_schema) { ?>
+            <div>
+                <span class="text-xs font-bold text-gray-400 uppercase">Salle / Emplacement</span>
+                <p class="text-lg font-bold text-gray-900 mt-1"><?php echo $soutenance["Salle"] ? "Salle A" . htmlspecialchars($soutenance["Salle"]) : "Non définie"; ?></p>
+            </div>
+            <?php } ?>
             <div>
                 <span class="text-xs font-bold text-gray-400 uppercase">Encadrant</span>
                 <p class="text-sm font-semibold text-gray-800 mt-1"><?php echo htmlspecialchars($soutenance["prenom_enseignant"] . " " . $soutenance["nom_enseignant"]); ?></p>

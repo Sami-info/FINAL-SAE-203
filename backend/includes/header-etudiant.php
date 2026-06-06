@@ -13,7 +13,8 @@
                     <a href="profil.php" class="hover:text-blue-200 transition">Mon Profil</a>
                     <a href="deconnexion.php" class="hover:text-blue-200 transition">Déconnexion</a>
                 <?php } else { ?>
-                    <a href="inscription.php" class="hover:text-blue-200 transition">inscription</a>
+                    <a href="connexion.php" class="hover:text-blue-200 transition">Se connecter</a>
+                    <a href="inscription.php" class="hover:text-blue-200 transition">Inscription</a>
                 <?php } ?>
             </div>
         </div>

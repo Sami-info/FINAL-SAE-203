@@ -40,7 +40,7 @@ include "../includes/header-admin.php";
                 <div>
                     <div class="flex justify-between items-center mb-2">
                         <label class="block text-sm font-semibold text-gray-700">Mot de passe</label>
-                        <a href="../../frontend/etudiant/mot-de-passe-oublie.html" class="text-xs text-red-600 hover:underline">Identifiants perdus ?</a>
+                        <a href="../etudiant/mot-de-passe-oublie.php" class="text-xs text-red-600 hover:underline">Identifiants perdus ?</a>
                     </div>
                     <input type="password" name="mot_de_passe" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:outline-none text-sm" placeholder="••••••••">
                 </div>

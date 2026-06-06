@@ -51,7 +51,7 @@ include "../includes/header-etudiant.php";
                 <div>
                     <div class="flex justify-between items-center mb-2">
                         <label class="block text-sm font-semibold text-gray-700">Mot de passe</label>
-                        <a href="../../frontend/etudiant/mot-de-passe-oublie.html" class="text-xs text-blue-600 hover:underline">Mot de passe oublié ?</a>
+                        <a href="mot-de-passe-oublie.php" class="text-xs text-blue-600 hover:underline">Mot de passe oublié ?</a>
                     </div>
                     <input type="password" name="mot_de_passe" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm" placeholder="••••••••">
                 </div>

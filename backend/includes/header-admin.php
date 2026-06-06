@@ -10,7 +10,7 @@
                 <a href="accueil.php" class="hover:text-blue-200 transition">Accueil</a>
                 <a href="voir-stage.php" class="hover:text-blue-200 transition">Stages</a>
                 <a href="soutenance.php" class="hover:text-blue-200 transition">Soutenances</a>
-                <a href="#" class="hover:text-blue-200 transition">Étudiants</a>
+                <a href="etudiants.php" class="hover:text-blue-200 transition">Étudiants</a>
                 <a href="entreprise.php" class="hover:text-blue-200 transition">Entreprises</a>
                 <a href="profil.php" class="hover:text-blue-200 transition">Profil</a>
                 <a href="deconnexion.php" class="hover:text-blue-200 transition">Déconnexion</a>
