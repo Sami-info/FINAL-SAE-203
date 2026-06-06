@@ -139,7 +139,9 @@ CREATE TABLE `soutenance` (
   `id_enseignant` int(11) DEFAULT NULL,
   `N°Etudiant` int(11) DEFAULT NULL,
   `date_soutenance` date DEFAULT NULL,
-  `horaire` time DEFAULT NULL,
+  `heure_debut` time DEFAULT NULL,
+  `heure_fin` time DEFAULT NULL,
+  `Salle` int(11) DEFAULT NULL,
   `note` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
