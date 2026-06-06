@@ -31,6 +31,12 @@ include "../includes/header-etudiant.php";
                 <p class="text-gray-500 text-sm mt-2">Saisissez vos identifiants universitaires</p>
             </div>
 
+            <?php if (isset($_GET["inscription"])) { ?>
+                <div class="bg-green-50 border border-green-200 text-green-700 text-sm p-3 rounded-xl mb-5">
+                    Inscription réussie ! Vous pouvez vous connecter.
+                </div>
+            <?php } ?>
+
             <?php if (isset($_GET["erreur"])) { ?>
                 <div class="bg-red-50 border border-red-200 text-red-700 text-sm p-3 rounded-xl mb-5">
                     Email ou mot de passe incorrect.
@@ -56,7 +62,7 @@ include "../includes/header-etudiant.php";
             </form>
 
             <div class="text-center mt-6 text-sm text-gray-600">
-                Nouveau sur la plateforme ? <a href="../../frontend/etudiant/inscription.html" class="text-blue-600 font-semibold hover:underline">Créer un compte</a>
+                Nouveau sur la plateforme ? <a href="inscription.php" class="text-blue-600 font-semibold hover:underline">Créer un compte</a>
             </div>
         </div>
     </main>
