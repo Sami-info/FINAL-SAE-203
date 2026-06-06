@@ -1,0 +1,88 @@
+<?php
+include "../includes/config.php";
+include "../includes/verif-session-admin.php";
+
+$titre = "Mon Profil Administrateur - MMI Meaux";
+$connecte = true;
+$id_enseignant = $_SESSION["id_enseignant"];
+
+$sql = "SELECT * FROM enseignant WHERE id_enseignant = ?";
+$stmt = mysqli_prepare($connexion, $sql);
+mysqli_stmt_bind_param($stmt, "i", $id_enseignant);
+mysqli_stmt_execute($stmt);
+$resultat = mysqli_stmt_get_result($stmt);
+$enseignant = mysqli_fetch_assoc($resultat);
+
+include "../includes/debut.php";
+include "../includes/header-admin.php";
+?>
+
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-12">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">Mon Profil Administrateur</h1>
+        </div>
+
+        <?php if (isset($_GET["ok"])) { ?>
+            <div class="bg-green-50 border border-green-200 text-green-700 text-sm p-3 rounded-xl mb-6">
+                Modifications enregistrées.
+            </div>
+        <?php } ?>
+
+        <?php if (isset($_GET["erreur"]) && $_GET["erreur"] == "mdp") { ?>
+            <div class="bg-red-50 border border-red-200 text-red-700 text-sm p-3 rounded-xl mb-6">
+                Mot de passe actuel incorrect ou confirmation différente.
+            </div>
+        <?php } ?>
+
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 mb-6">
+            <h2 class="text-base font-bold text-gray-900 mb-4">Informations</h2>
+            <form action="traitement-profil.php" method="POST" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Nom</label>
+                        <input type="text" name="nom" value="<?php echo htmlspecialchars($enseignant["nom"]); ?>" class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Prénom</label>
+                        <input type="text" name="prenom" value="<?php echo htmlspecialchars($enseignant["prenom"]); ?>" class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Email</label>
+                    <input type="email" value="<?php echo htmlspecialchars($enseignant["email"]); ?>" class="w-full px-3 py-2 border border-gray-300 bg-gray-50 rounded-xl text-sm" readonly>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Téléphone</label>
+                    <input type="text" name="telephone" value="<?php echo htmlspecialchars($enseignant["téléphone"]); ?>" class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm">
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-blue-900 text-white text-xs font-bold px-4 py-2 rounded-xl">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+            <h2 class="text-base font-bold text-gray-900 mb-4">Changer le mot de passe</h2>
+            <form action="traitement-mdp.php" method="POST" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Mot de passe actuel</label>
+                    <input type="password" name="mdp_actuel" required class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Nouveau mot de passe</label>
+                        <input type="password" name="mdp_nouveau" required class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Confirmation</label>
+                        <input type="password" name="mdp_confirm" required class="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm">
+                    </div>
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-xl">Mettre à jour le mot de passe</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+<?php include "../includes/footer.php"; ?>
