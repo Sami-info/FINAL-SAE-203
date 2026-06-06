@@ -51,18 +51,33 @@
                 Mes Résultats Professionnels
             </div>
             <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div class="bg-gray-50 p-4 rounded-xl">
-                    <span class="text-xs font-bold text-gray-500 uppercase">Note du Rapport</span>
-                    <p class="text-3xl font-extrabold text-gray-900 mt-2">15.5 <span class="text-sm font-normal text-gray-400">/20</span></p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-xl">
-                    <span class="text-xs font-bold text-gray-500 uppercase">Note de la Soutenance</span>
-                    <p class="text-3xl font-extrabold text-gray-900 mt-2">17.0 <span class="text-sm font-normal text-gray-400">/20</span></p>
-                </div>
-                <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl flex flex-col justify-center items-center">
-                    <span class="text-xs font-bold text-blue-800 uppercase">Moyenne Finale</span>
-                    <p class="text-4xl font-black text-blue-900 mt-1">16.25</p>
-                </div>
+    <div class="bg-gray-50 p-4 rounded-xl">
+        <span class="block text-xs font-bold text-gray-500 uppercase">Note du Rapport</span>
+
+        <p class="flex justify-center items-baseline gap-1 text-3xl font-extrabold text-gray-900 mt-2">
+            <span class="counter" data-target="15.5">0</span>
+            <span class="text-sm font-normal text-gray-400">/20</span>
+        </p>
+    </div>
+
+    <div class="bg-gray-50 p-4 rounded-xl">
+        <span class="block text-xs font-bold text-gray-500 uppercase">Note de la Soutenance</span>
+
+        <p class="flex justify-center items-baseline gap-1 text-3xl font-extrabold text-gray-900 mt-2">
+            <span class="counter" data-target="17.0">0</span>
+            <span class="text-sm font-normal text-gray-400">/20</span>
+        </p>
+    </div>
+
+    <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl flex flex-col justify-center items-center">
+        <span class="block text-xs font-bold text-blue-800 uppercase">Moyenne Finale</span>
+
+        <p class="flex justify-center items-baseline gap-1 text-4xl font-black text-blue-900 mt-1">
+            <span class="counter" data-target="16.25">0</span>
+            <span class="text-sm font-normal text-blue-400">/20</span>
+        </p>
+    </div>
+</div>
             </div>
         </div>
     </main>
@@ -121,5 +136,6 @@
         </div>
     </div>
 </footer>
+<script src="./script.js"></script>
 </body>
 </html>
