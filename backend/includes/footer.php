@@ -1,0 +1,51 @@
+    <footer class="bg-gray-900 text-gray-300 border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2 text-white">
+                    <span class="text-2xl font-bold tracking-wide">MMI Meaux</span>
+                    <span class="bg-blue-600 text-xs px-2 py-1 rounded uppercase font-bold text-blue-100">Stages</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    Application officielle de suivi et de gestion des stages du département MMI de Meaux
+                    (Université Gustave Eiffel).
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="connexion.php" class="hover:text-blue-400 transition">Accueil</a></li>
+                    <li><a href="voir-stage.php" class="hover:text-blue-400 transition">Offres de stages</a></li>
+                    <li><a href="connexion.php" class="hover:text-blue-400 transition">Espace Étudiant</a></li>
+                    <li><a href="../admin/connexion.php" class="hover:text-blue-400 transition">Espace Admin</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Ressources</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-400 transition">Portail ESUP</a></li>
+                    <li><a href="https://www.univ-gustave-eiffel.fr" target="_blank" class="hover:text-blue-400 transition">Univ Gustave Eiffel</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Guide des stages</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Contact Secrétariat</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Suivez MMI Meaux</h3>
+                <div class="text-sm text-gray-400">
+                    <p class="mb-1">Environnement de dev :</p>
+                    <p class="font-medium text-blue-400">PHP / MySQL (Mutualisé)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-950 text-gray-500 text-xs py-5 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                &copy; 2026 BUT MMI Meaux — Projet SAé Suivi des Stages. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
