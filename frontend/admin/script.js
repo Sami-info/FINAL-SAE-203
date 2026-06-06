@@ -51,3 +51,26 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCounter();
   });
 });
+
+const entrepriseCards = document.querySelectorAll(".entreprise-card");
+
+entrepriseCards.forEach(function (card, index) {
+  card.style.opacity = "0";
+  card.style.transform = "translateY(35px) rotate(-1deg)";
+  card.style.transition = "opacity 0.7s ease, transform 0.7s ease, box-shadow 0.3s ease";
+
+  setTimeout(function () {
+    card.style.opacity = "1";
+    card.style.transform = "translateY(0) rotate(0)";
+  }, 200 + index * 150);
+
+  card.addEventListener("mouseenter", function () {
+    card.style.transform = "scale(1.04)";
+    card.style.boxShadow = "0 20px 35px rgba(0, 0, 0, 0.12)";
+  });
+
+  card.addEventListener("mouseleave", function () {
+    card.style.transform = "scale(1)";
+    card.style.boxShadow = "";
+  });
+});
