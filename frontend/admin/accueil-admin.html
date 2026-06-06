@@ -17,11 +17,11 @@
                 <span class="bg-red-600 text-xs px-2 py-1 rounded-sm uppercase font-semibold">ADMIN</span>
             </div>
             <div class="flex items-center space-x-6 text-sm font-medium">
-                <a href="accueil-admin.html" class="bg-white text-blue-900 px-5 py-2 rounded-lg font-semibold">Accueil</a>
-                <a href="voir-stage-admin.html" class="hover:text-blue-200 transition">Stages</a>
-                <a href="soutenance-admin.html" class="hover:text-blue-200 transition">Soutenances</a>
+                <a href="accueil.html" class="bg-white text-blue-900 px-5 py-2 rounded-lg font-semibold">Accueil</a>
+                <a href="voir-stage.html" class="hover:text-blue-200 transition">Stages</a>
+                <a href="soutenance.html" class="hover:text-blue-200 transition">Soutenances</a>
                 <a href="entreprise-admin.html" class="hover:text-blue-200 transition">Entreprises</a>
-                <a href="profil-admin.html" class="hover:text-blue-200 transition">Profil</a>
+                <a href="profil.html" class="hover:text-blue-200 transition">Profil</a>
             </div>
         </div>
     </nav>
@@ -36,7 +36,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
             <div class="bg-white p-6 rounded-2xl shadow">
                 <div class="text-sm text-gray-500">Étudiants en stage</div>
-                <div class="text-4xl font-bold text-gray-900 mt-2">28</div>
+                 <div class="counter text-4xl font-bold text-gray-900 mt-2" data-target="28">0</div>
                 <div class="text-green-600 text-sm mt-2 flex items-center gap-1">
                     ▲ 4 depuis la semaine dernière
                 </div>
@@ -44,7 +44,7 @@
             
             <div class="bg-white p-6 rounded-2xl shadow">
                 <div class="text-sm text-gray-500">Stages en cours</div>
-                <div class="text-4xl font-bold text-gray-900 mt-2">19</div>
+                <div class="counter text-4xl font-bold text-gray-900 mt-2" data-target="19">0</div>
                 <div class="text-green-600 text-sm mt-2 flex items-center gap-1">
                     ▲ 2 cette semaine
                 </div>
@@ -52,13 +52,13 @@
             
             <div class="bg-white p-6 rounded-2xl shadow">
                 <div class="text-sm text-gray-500">Soutenances à venir</div>
-                <div class="text-4xl font-bold text-gray-900 mt-2">7</div>
+                <div class="counter text-4xl font-bold text-gray-900 mt-2" data-target="7">0</div>
                 <div class="text-amber-600 text-sm mt-2">Prochaine : 12 juin</div>
             </div>
             
             <div class="bg-white p-6 rounded-2xl shadow">
                 <div class="text-sm text-gray-500">Entreprises partenaires</div>
-                <div class="text-4xl font-bold text-gray-900 mt-2">34</div>
+                <div class="counter text-4xl font-bold text-gray-900 mt-2" data-target="34">0</div>
                 <div class="text-blue-600 text-sm mt-2">+3 nouvelles</div>
             </div>
         </div>
@@ -177,5 +177,6 @@
         </div>
     </div>
 </footer>
+<script src="./script.js"></script>
 </body>
 </html>
