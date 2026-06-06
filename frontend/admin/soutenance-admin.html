@@ -8,7 +8,6 @@
 </head>
 <body class="bg-gray-50 font-sans min-h-screen flex flex-col">
 
-    <!-- NAVBAR ADMIN -->
     <nav class="bg-blue-900 text-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3">
@@ -20,53 +19,57 @@
                 <a href="accueil-admin.html" class="hover:text-blue-200 transition">Accueil</a>
                 <a href="voir-stage-admin.html" class="hover:text-blue-200 transition">Stages</a>
                 <a href="soutenance-admin.html" class="bg-white text-blue-900 px-5 py-2 rounded-lg font-semibold">Soutenances</a>
-                <a href="#" class="hover:text-blue-200 transition">Étudiants</a>
                 <a href="entreprise-admin.html" class="hover:text-blue-200 transition">Entreprises</a>
                 <a href="profil-admin.html" class="hover:text-blue-200 transition">Profil</a>
             </div>
         </div>
     </nav>
 
-    <main class="flex-grow max-w-7xl mx-auto px-4 py-10">
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-10 w-full">
         <div class="flex justify-between items-center mb-8">
             <div>
                 <h1 class="text-3xl font-bold text-gray-900">Gestion des Soutenances</h1>
                 <p class="text-gray-600 mt-1">Année 2025-2026 • BUT MMI</p>
             </div>
-            <button onclick="alert('Fonctionnalité à venir : Nouvelle soutenance')"
-                    class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2">
+            <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 cursor-pointer transition">
                 <span>+</span>
                 Nouvelle Soutenance
             </button>
         </div>
 
-        <!-- Filtres -->
-        <div class="bg-white p-5 rounded-2xl shadow mb-8 flex flex-wrap gap-4 items-center">
+        <div class="bg-white p-5 rounded-2xl shadow-xs mb-8 flex flex-wrap gap-4 items-center border border-gray-100">
             <input type="text" placeholder="Rechercher un étudiant..." 
-                   class="flex-1 min-w-[250px] px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                   class="flex-1 min-w-[250px] px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
             
-            <select class="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <select class="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white">
                 <option>Toutes les dates</option>
                 <option>Juin 2026</option>
                 <option>Juillet 2026</option>
             </select>
 
-            <select class="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <select class="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white">
                 <option>Tous les statuts</option>
                 <option>Planifiée</option>
                 <option>Validée</option>
                 <option>Terminée</option>
             </select>
 
-            <button class="bg-gray-800 text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-900 transition">
+            <button class="bg-gray-800 text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-900 transition text-sm">
                 Filtrer
             </button>
         </div>
 
-        <!-- Tableau des Soutenances -->
-        <div class="bg-white rounded-2xl shadow overflow-hidden">
+        <div id="state-empty" class="bg-white rounded-2xl border border-dashed border-gray-300 p-16 text-center shadow-xs">
+            <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <h3 class="mt-4 text-lg font-semibold text-gray-900">Aucune soutenance planifiée</h3>
+            <p class="mt-1 text-sm text-gray-500">Commencez par planifier une nouvelle soutenance pour l'IUT en cliquant sur le bouton ci-dessus.</p>
+        </div>
+
+        <div id="container-table" class="bg-white rounded-2xl shadow overflow-hidden border border-gray-100 hidden">
             <table class="w-full">
-                <thead class="bg-gray-100 border-b">
+                <thead class="bg-gray-50 border-b border-gray-100">
                     <tr>
                         <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">Étudiant</th>
                         <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">Sujet de Stage</th>
@@ -77,48 +80,30 @@
                         <th class="px-6 py-4 text-center text-sm font-semibold text-gray-700">Actions</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y">
-                    <tr class="hover:bg-gray-50">
+                <tbody class="divide-y divide-gray-100 text-sm">
+                    <tr class="hover:bg-gray-50/70 transition">
                         <td class="px-6 py-5">
-                            <div class="font-medium">Jean Dupont</div>
-                            <div class="text-sm text-gray-500">MMI2 - Groupe A</div>
+                            <div class="font-medium text-gray-900">Jean Dupont</div>
+                            <div class="text-xs text-gray-500">MMI2 - Groupe A</div>
                         </td>
-                        <td class="px-6 py-5 text-sm">Développement d'une application de suivi de stages</td>
+                        <td class="px-6 py-5 text-gray-600">Développement d'une application de suivi de stages</td>
                         <td class="px-6 py-5">
-                            <div class="font-medium">12 Juin 2026</div>
-                            <div class="text-sm text-gray-500">14h00 - 14h45</div>
+                            <div class="font-medium text-gray-900">12 Juin 2026</div>
+                            <div class="text-xs text-gray-500">14h00 - 14h45</div>
                         </td>
-                        <td class="px-6 py-5 font-medium">A102</td>
-                        <td class="px-6 py-5 text-sm">
-                            M. Leclerc<br>
-                            <span class="text-gray-500 text-xs">+ Mme Moreau</span>
+                        <td class="px-6 py-5 font-semibold text-gray-800">Salle A102</td>
+                        <td class="px-6 py-5 text-xs text-gray-600">
+                            <span class="font-medium text-gray-900">M. Leclerc</span><br>
+                            <span class="text-gray-400">+ Mme Moreau</span>
                         </td>
                         <td class="px-6 py-5">
-                            <span class="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">Planifiée</span>
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                Planifiée
+                            </span>
                         </td>
                         <td class="px-6 py-5 text-center">
-                            <button class="text-blue-600 hover:text-blue-700 font-medium text-sm">Modifier</button>
-                        </td>
-                    </tr>
-
-                    <!-- Autres lignes d'exemple -->
-                    <tr class="hover:bg-gray-50">
-                        <td class="px-6 py-5">
-                            <div class="font-medium">Sophie Martin</div>
-                            <div class="text-sm text-gray-500">MMI2 - Groupe B</div>
-                        </td>
-                        <td class="px-6 py-5 text-sm">Refonte UX/UI du site e-commerce</td>
-                        <td class="px-6 py-5">
-                            <div class="font-medium">15 Juin 2026</div>
-                            <div class="text-sm text-gray-500">09h30 - 10h15</div>
-                        </td>
-                        <td class="px-6 py-5 font-medium">A105</td>
-                        <td class="px-6 py-5 text-sm">Mme Bernard</td>
-                        <td class="px-6 py-5">
-                            <span class="inline-block px-3 py-1 bg-amber-100 text-amber-700 text-xs font-medium rounded-full">En attente</span>
-                        </td>
-                        <td class="px-6 py-5 text-center">
-                            <button class="text-blue-600 hover:text-blue-700 font-medium text-sm">Modifier</button>
+                            <button class="text-blue-600 hover:text-blue-800 font-semibold text-xs transition">Modifier</button>
                         </td>
                     </tr>
                 </tbody>
@@ -126,60 +111,42 @@
         </div>
     </main>
 
-    <!-- Footer (même que les autres pages) -->
     <footer class="bg-gray-900 text-gray-300 border-t border-gray-800 mt-auto">
-    <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-        
-        <!-- Colonne 1 : Logo + Description -->
-        <div class="space-y-4">
-            <div class="flex items-center space-x-2 text-white">
-                <span class="text-2xl font-bold tracking-wide">MMI Meaux</span>
-                <span class="bg-blue-600 text-xs px-2 py-1 rounded uppercase font-bold text-blue-100">Stages</span>
+        <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2 text-white">
+                    <span class="text-2xl font-bold tracking-wide">MMI Meaux</span>
+                    <span class="bg-blue-600 text-xs px-2 py-1 rounded uppercase font-bold text-blue-100">Stages</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">Application officielle de suivi et de gestion des stages du département MMI de Meaux (Université Gustave Eiffel).</p>
             </div>
-            <p class="text-sm text-gray-400 leading-relaxed">
-                Application officielle de suivi et de gestion des stages du département MMI de Meaux 
-                (Université Gustave Eiffel).
-            </p>
-        </div>
-
-        <!-- Colonne 2 : Navigation -->
-        <div>
-            <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h3>
-            <ul class="space-y-2 text-sm">
-                <li><a href="accueil.html" class="hover:text-blue-400 transition">Accueil</a></li>
-                <li><a href="voir-stage.html" class="hover:text-blue-400 transition">Offres de stages</a></li>
-                <li><a href="#" class="hover:text-blue-400 transition">Espace Étudiant</a></li>
-                <li><a href="#" class="hover:text-blue-400 transition">Espace Entreprise</a></li>
-            </ul>
-        </div>
-
-        <!-- Colonne 3 : Ressources -->
-        <div>
-            <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Ressources</h3>
-            <ul class="space-y-2 text-sm">
-                <li><a href="#" class="hover:text-blue-400 transition">Portail ESUP</a></li>
-                <li><a href="https://www.univ-gustave-eiffel.fr" target="_blank" class="hover:text-blue-400 transition">Univ Gustave Eiffel</a></li>
-                <li><a href="#" class="hover:text-blue-400 transition">Guide des stages</a></li>
-                <li><a href="#" class="hover:text-blue-400 transition">Contact Secrétariat</a></li>
-            </ul>
-        </div>
-
-        <!-- Colonne 4 : Suivez MMI Meaux -->
-        <div>
-            <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Suivez MMI Meaux</h3>
-            <div class="text-sm text-gray-400">
-                <p class="mb-1">Environnement de dev :</p>
-                <p class="font-medium text-blue-400">PHP / MySQL (Mutualisé)</p>
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="accueil.html" class="hover:text-blue-400 transition">Accueil</a></li>
+                    <li><a href="voirstage-admin.html" class="hover:text-blue-400 transition">Offres de stages</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Espace Étudiant</a></li>
+                    <li><a href="entreprise-admin.html" class="hover:text-blue-400 transition">Espace Entreprise</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Ressources</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-400 transition">Portail ESUP</a></li>
+                    <li><a href="https://www.univ-gustave-eiffel.fr" target="_blank" class="hover:text-blue-400 transition">Univ Gustave Eiffel</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Suivez MMI Meaux</h3>
+                <div class="text-sm text-gray-400">
+                    <p class="mb-1">Environnement de dev :</p>
+                    <p class="font-medium text-blue-400">PHP / MySQL (Mutualisé)</p>
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- Copyright -->
-    <div class="bg-gray-950 text-gray-500 text-xs py-5 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 text-center">
+        <div class="bg-gray-950 text-gray-500 text-xs py-5 border-t border-gray-800 text-center">
             &copy; 2026 BUT MMI Meaux — Projet SAé Suivi des Stages. Tous droits réservés.
         </div>
-    </div>
-</footer>
+    </footer>
 </body>
 </html>
