@@ -1,3 +1,4 @@
+/** Animation Fondue de la balise Main**/
 document.addEventListener("DOMContentLoaded", function () {
   const main = document.querySelector("main");
 
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  /** Affichage du mot de passe par appuie du bouton **/
   const passwordInput = document.getElementById("password");
   const togglePassword = document.getElementById("togglePassword");
   const eyeIcon = document.getElementById("eyeIcon");
@@ -30,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  /** Animation des chiffres **/
   const counters = document.querySelectorAll(".counter");
 
   counters.forEach(function (counter) {
@@ -51,6 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCounter();
   });
 });
+
+/** Vérification du champ de saisie entre le mdp et la confirmation du mdp **/
 
 const registerForm = document.getElementById("registerForm");
 const password = document.getElementById("password");
